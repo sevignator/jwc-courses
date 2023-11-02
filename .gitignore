@@ -1,0 +1,12 @@
+# For reference: https://www.w3schools.com/git/git_ignore.asp?remote=github
+
+# Operating Systems
+.DS_Store
+
+# Code editors
+.idea/
+.vscode/
+
+# NPM
+node_modules/
+build/
