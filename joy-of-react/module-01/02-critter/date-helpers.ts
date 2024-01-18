@@ -6,6 +6,6 @@ import format from 'date-fns/format';
 
   March 14th, 2024 at 11:09 AM
 */
-export function formatDate(date) {
+export function formatDate(date: number | string | Date) {
   return format(new Date(date), "MMMM do 'at' hh:mm b");
 }
