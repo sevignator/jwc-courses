@@ -1,6 +1,6 @@
 import React from 'react';
 
-type ButtonProps = {
+export type ButtonProps = {
   children: React.ReactNode;
   status?: 'default' | 'danger' | 'success';
 };
