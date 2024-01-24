@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "date-fns": "^3.2.0",
+    "date-fns": "^3.2.0"
   },
   "devDependencies": {
     "@types/date-fns": "^2.6.0",
