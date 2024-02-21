@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { sample } from '../../utils';
-import { WORDS } from '../../data';
+import { sample } from '@src/utils';
+import { WORDS } from '@src/data';
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
