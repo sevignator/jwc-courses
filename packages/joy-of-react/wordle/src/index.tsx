@@ -6,5 +6,9 @@ import App from './components/App';
 import './reset.css';
 import './styles.css';
 
-const root = createRoot(document.querySelector('#root'));
-root.render(<App />);
+const rootEl = document.querySelector('#root');
+
+if (rootEl !== null) {
+  const root = createRoot(rootEl);
+  root.render(<App />);
+}
