@@ -1,1 +1,1 @@
-# Josh W. Comeau course solutions
+# Josh W. Comeau courses solutions
