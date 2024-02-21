@@ -1,7 +1,8 @@
 # For reference: https://www.w3schools.com/git/git_ignore.asp?remote=github
 
-# Operating Systems
+# Misc
 .DS_Store
+.parcel-cache
 
 # Code editors
 .idea/
