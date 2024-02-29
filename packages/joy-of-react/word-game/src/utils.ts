@@ -1,8 +1,14 @@
-export const sample = (arr: any[]) => {
-  return arr[Math.floor(Math.random() * arr.length)];
-};
+import { faker } from '@faker-js/faker';
 
-export const range = (start: number, end: number, step = 1) => {
+export function getRandomWord(length: number) {
+  return faker.word
+    .noun({
+      length,
+    })
+    .toUpperCase();
+}
+
+export function range(start: number, end: number, step = 1) {
   let output = [];
   if (typeof end === 'undefined') {
     end = start;
@@ -12,4 +18,4 @@ export const range = (start: number, end: number, step = 1) => {
     output.push(i);
   }
   return output;
-};
+}
