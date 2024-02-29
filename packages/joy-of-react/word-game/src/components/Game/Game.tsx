@@ -1,5 +1,8 @@
 import React from 'react';
 
+import GuessInput from '@components/GuessInput';
+import GuessResults from '@components/GuessResults';
+
 import { sample } from '@src/utils';
 import { WORDS } from '@src/data';
 
@@ -8,8 +11,30 @@ const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
+export type Guess = {
+  id: string;
+  text: string;
+};
+
 function Game() {
-  return <>Put a game here!</>;
+  const [guesses, setGuesses] = React.useState<Guess[]>([]);
+
+  function addGuess(newGuess: string) {
+    setGuesses([
+      ...guesses,
+      {
+        id: crypto.randomUUID(),
+        text: newGuess,
+      },
+    ]);
+  }
+
+  return (
+    <>
+      <GuessResults guesses={guesses} />
+      <GuessInput addGuess={addGuess} />
+    </>
+  );
 }
 
 export default Game;
