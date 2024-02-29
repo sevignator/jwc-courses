@@ -1,21 +1,19 @@
 import React from 'react';
-
 import { range } from '@src/utils';
+import { NUM_OF_LETTERS_PER_WORD } from '@src/constants';
 
 export type GuessProps = {
-  word?: string;
+  value?: string;
 };
 
-function Guess({ word = '' }: GuessProps) {
+function Guess({ value }: GuessProps) {
   return (
     <p className='guess'>
-      {word
-        ? [...word].map((char, index) => (
-            <span key={index} className='cell'>
-              {char}
-            </span>
-          ))
-        : range(5).map((cell) => <span key={cell} className='cell' />)}
+      {range(NUM_OF_LETTERS_PER_WORD).map((index) => (
+        <span key={index} className='cell'>
+          {value?.[index]}
+        </span>
+      ))}
     </p>
   );
 }
