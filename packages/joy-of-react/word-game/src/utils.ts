@@ -8,7 +8,7 @@ export function getRandomWord(length: number) {
     .toUpperCase();
 }
 
-export function range(start: number, end: number, step = 1) {
+export function range(start: number, end?: number, step = 1) {
   let output = [];
   if (typeof end === 'undefined') {
     end = start;

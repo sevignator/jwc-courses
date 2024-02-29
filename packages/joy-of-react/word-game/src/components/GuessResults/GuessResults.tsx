@@ -1,18 +1,23 @@
 import React from 'react';
 
-import { type Guess } from '@components/Game';
+import Guess from '@components/Guess';
+import { type GuessType } from '@components/Game';
 
-type GuessResultsProps = {
-  guesses: Guess[];
+import { range } from '@src/utils';
+import { NUM_OF_GUESSES_ALLOWED } from '@src/constants';
+
+export type GuessResultsProps = {
+  guesses: GuessType[];
 };
 
 function GuessResults({ guesses }: GuessResultsProps) {
   return (
     <div className='guess-results'>
-      {guesses.map(({ id, text }) => (
-        <p key={id} className='guess'>
-          {text}
-        </p>
+      {guesses.map(({ id, word }) => (
+        <Guess key={id} word={word} />
+      ))}
+      {range(NUM_OF_GUESSES_ALLOWED - guesses.length).map((index) => (
+        <Guess key={index} />
       ))}
     </div>
   );

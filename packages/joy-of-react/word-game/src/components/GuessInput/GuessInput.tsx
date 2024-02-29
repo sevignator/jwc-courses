@@ -1,6 +1,6 @@
 import React from 'react';
 
-type GuessInputProps = {
+export type GuessInputProps = {
   addGuess: (newGuess: string) => void;
 };
 

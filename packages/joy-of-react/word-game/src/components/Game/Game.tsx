@@ -3,24 +3,24 @@ import React from 'react';
 import GuessInput from '@components/GuessInput';
 import GuessResults from '@components/GuessResults';
 
-type GameProps = {
+export type GameProps = {
   answer: string;
 };
 
-export type Guess = {
+export type GuessType = {
   id: string;
-  text: string;
+  word: string;
 };
 
 function Game({ answer }: GameProps) {
-  const [guesses, setGuesses] = React.useState<Guess[]>([]);
+  const [guesses, setGuesses] = React.useState<GuessType[]>([]);
 
-  function addGuess(newGuess: string) {
+  function addGuess(word: string) {
     setGuesses([
       ...guesses,
       {
         id: crypto.randomUUID(),
-        text: newGuess,
+        word,
       },
     ]);
   }
