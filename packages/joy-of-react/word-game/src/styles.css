@@ -1,7 +1,7 @@
 /*
   Theme and global variables
 */
-html {
+:root {
   overflow-y: scroll;
 
   --game-spacing: 32px;
@@ -11,10 +11,13 @@ html {
   --color-warning: hsl(50deg 100% 30%);
   --color-error: hsl(0deg 70% 45%);
   --color-gray-100: hsl(0deg 0% 10%);
+  --color-gray-200: hsl(0deg 0% 15%);
   --color-gray-300: hsl(0deg 0% 25%);
   --color-gray-500: hsl(0deg 0% 50%);
   --color-gray-700: hsl(0deg 0% 75%);
   --color-gray-900: hsl(0deg 0% 90%);
+
+  --time-transition-theme-switch: 200ms;
 }
 
 /*
@@ -38,38 +41,6 @@ button {
   cursor: pointer;
   text-align: left;
   color: inherit;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-header {
-  display: flex;
-  height: var(--header-height);
-  border-bottom: 1px solid var(--color-gray-700);
-  color: var(--color-gray-300);
-}
-
-header .side {
-  width: var(--header-height);
-  display: grid;
-  place-content: center;
-}
-
-h1 {
-  flex: 1;
-  font-size: 2rem;
-  line-height: var(--header-height);
-  text-align: center;
-}
-
-@media (max-width: 25rem) {
-  h1 {
-    font-size: 1.25rem;
-  }
 }
 
 .game-wrapper {

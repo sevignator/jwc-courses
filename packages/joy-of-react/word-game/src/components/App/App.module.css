@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: background-color var(--time-transition-theme-switch);
+
+  [data-theme="dark"]& {
+    background-color: var(--color-gray-200);
+  }
+}

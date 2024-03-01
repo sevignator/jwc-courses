@@ -19,3 +19,10 @@ export function range(start: number, end?: number, step = 1) {
   }
   return output;
 }
+
+export function getPreferredColorScheme() {
+  return window?.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: light)').matches
+    ? 'light'
+    : 'dark';
+}

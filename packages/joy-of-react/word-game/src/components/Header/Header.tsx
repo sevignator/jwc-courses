@@ -1,9 +1,24 @@
 import React from 'react';
+import styles from './Header.module.css';
+import { useThemeContext } from '@context/ThemeProvider';
+import VisuallyHidden from '@components/VisuallyHidden';
 
 function Header() {
+  const { theme, switchTheme } = useThemeContext();
+
   return (
-    <header>
-      <h1>Word Game</h1>
+    <header className={styles.header}>
+      <h1 className={styles.title}>Word Game</h1>
+      <VisuallyHidden>
+        <label htmlFor='dark-mode-toggle'>Dark mode</label>
+      </VisuallyHidden>
+      <input
+        type='checkbox'
+        name='dark-mode'
+        id='dark-mode-toggle'
+        checked={theme === 'dark'}
+        onChange={(e) => switchTheme(e.target.checked ? 'dark' : 'light')}
+      />
     </header>
   );
 }
