@@ -1,7 +1,6 @@
-import React from 'react';
-import styles from './Header.module.css';
-import { useThemeContext } from '@context/ThemeProvider';
 import VisuallyHidden from '@components/VisuallyHidden';
+import useThemeContext from '@hooks/useThemeContext';
+import styles from './Header.module.css';
 
 function Header() {
   const { theme, switchTheme } = useThemeContext();

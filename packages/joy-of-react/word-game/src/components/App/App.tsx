@@ -1,7 +1,7 @@
 import Game from '@components/Game';
 import Header from '@components/Header';
+import useThemeContext from '@hooks/useThemeContext';
 import styles from './App.module.css';
-import { useThemeContext } from '@context/ThemeProvider';
 
 function App() {
   const { theme } = useThemeContext();
@@ -9,9 +9,7 @@ function App() {
   return (
     <div className={styles.wrapper} data-theme={theme}>
       <Header />
-      <div className='game-wrapper'>
-        <Game />
-      </div>
+      <Game />
     </div>
   );
 }

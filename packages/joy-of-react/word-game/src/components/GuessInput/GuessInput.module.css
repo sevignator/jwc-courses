@@ -1,0 +1,34 @@
+.guessInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 6.75rem;
+}
+
+.guessInputWrapper label {
+  font-size: 1.25rem;
+  transition: color var(--time-transition-theme-switch);
+  [data-theme="dark"] & {
+    color: #FFF;
+  }
+}
+
+.guessInputWrapper input {
+  display: block;
+  width: 100%;
+  font-size: 2rem;
+  border: 2px solid var(--color-gray-700);
+  border-radius: 4px;
+  padding: 8px 16px;
+  outline-offset: 4px;
+  transition:
+    background-color var(--time-transition-theme-switch),
+    border-color var(--time-transition-theme-switch),
+    color var(--time-transition-theme-switch);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-gray-300);
+    border-color: rgb(0 0 0 / 0.65);
+    color: #FFF;
+  }
+}

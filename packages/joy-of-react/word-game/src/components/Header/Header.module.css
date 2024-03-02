@@ -2,11 +2,15 @@
   display: flex;
   height: var(--header-height);
   border-bottom: 1px solid var(--color-gray-700);
+  background-color: var(--color-gray-900);
   color: var(--color-gray-300);
-  transition: background-color var(--time-transition-theme-switch);
+  transition:
+    background-color var(--time-transition-theme-switch),
+    border-bottom-color var(--time-transition-theme-switch);
 
   [data-theme="dark"] & {
     background-color: var(--color-gray-100);
+    border-color: rgb(0 0 0 / 0.65);
   }
 
   & .side {

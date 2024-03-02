@@ -8,18 +8,7 @@ type ThemeContextType = {
   switchTheme: (themeName: ThemeOptions) => void;
 };
 
-const ThemeContext = React.createContext<ThemeContextType | null>(null);
-
-// Custom hook for providing the theme context
-export function useThemeContext() {
-  const themeContext = React.useContext(ThemeContext);
-
-  if (themeContext === null) {
-    throw new Error('Theme context is undefined.');
-  }
-
-  return themeContext;
-}
+export const ThemeContext = React.createContext<ThemeContextType | null>(null);
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   const colorScheme = usePreferredColorScheme();

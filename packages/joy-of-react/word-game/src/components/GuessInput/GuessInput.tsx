@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './GuessInput.module.css';
 
 export type GuessInputProps = {
   addGuess: (newGuess: string) => void;
@@ -19,7 +20,7 @@ function GuessInput({ addGuess }: GuessInputProps) {
   }
 
   return (
-    <form className='guess-input-wrapper' onSubmit={handleSubmit}>
+    <form className={styles.guessInputWrapper} onSubmit={handleSubmit}>
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
         id='guess-input'
