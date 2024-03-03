@@ -1,23 +1,16 @@
-import VisuallyHidden from '@components/VisuallyHidden';
-import useThemeContext from '@hooks/useThemeContext';
+import ThemeSwitch from '@components/ThemeSwitch';
 import styles from './Header.module.css';
 
 function Header() {
-  const { theme, switchTheme } = useThemeContext();
-
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>Word Game</h1>
-      <VisuallyHidden>
-        <label htmlFor='dark-mode-toggle'>Dark mode</label>
-      </VisuallyHidden>
-      <input
-        type='checkbox'
-        name='dark-mode'
-        id='dark-mode-toggle'
-        checked={theme === 'dark'}
-        onChange={(e) => switchTheme(e.target.checked ? 'dark' : 'light')}
-      />
+      <div className={styles.headerLeftSide}></div>
+      <div className={styles.headerMiddle}>
+        <h1 className={styles.title}>Word Game</h1>
+      </div>
+      <div className={styles.headerRightSide}>
+        <ThemeSwitch />
+      </div>
     </header>
   );
 }

@@ -1,0 +1,91 @@
+.wrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: var(--clr-cool-gray);
+  font-weight: 700;
+  transition: color var(--time-transition-fast);
+  cursor: pointer;
+  user-select: none;
+
+  &:has(input:not(:checked)) .leftLabel,
+  &:has(input:checked) .rightLabel {
+    color: var(--clr-marine-blue);
+  }
+}
+
+.switch {
+  --size-width: 50px;
+  --size-height: 25px;
+  position: relative;
+  display: block;
+  width: var(--size-width);
+  height: var(--size-height);
+
+  & .checkbox {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  & .toggleOuter {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-gray-300);
+    border-radius: 100vw;
+    overflow: hidden;
+    transition:
+      background-color 300ms;
+
+    .wrapper:has(:checked) & {
+      background-color: #FFF;
+    }
+
+    & .toggleInner {
+      --size-inner: calc(var(--size-height));
+      position: absolute;
+      inset-inline: 0;
+      right: 0;
+      height: var(--size-inner);
+      aspect-ratio: 1;
+      background-color: #FFF;
+      border-radius: 100vw;
+      scale: 0.8;
+      transition:
+        inset-inline 300ms,
+        background-color 300ms;
+
+      .wrapper:has(:checked) & {
+        inset-inline: calc(100% - var(--size-inner));
+        background-color: #000;
+      }
+    }
+
+    & .sunIcon {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      scale: 0.8;
+      transition: left 200ms ease-out;
+
+      .wrapper:has(:checked) & {
+        left: 0;
+      }
+    }
+
+    & .moonIcon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      scale: 0.8;
+      transition: right 200ms ease-out;
+
+      .wrapper:has(:checked) & {
+        right: -100%;
+      }
+    }
+  }
+}
