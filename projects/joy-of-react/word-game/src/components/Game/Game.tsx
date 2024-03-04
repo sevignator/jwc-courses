@@ -9,14 +9,23 @@ import {
 } from '@src/constants';
 import styles from './Game.module.css';
 
+type GameStatuses = 'running' | 'won' | 'lost';
+
 const answer = getRandomWord(NUM_OF_LETTERS_PER_WORD);
 
-console.log({ answer });
+console.log(answer);
 
 function Game() {
   const [guesses, setGuesses] = React.useState<string[]>([]);
-  const hasGuesses = guesses.length < NUM_OF_GUESSES_ALLOWED;
-  const hasWon = guesses[guesses.length - 1] === answer;
+  let gameStatus: GameStatuses;
+
+  if (guesses[guesses.length - 1] === answer) {
+    gameStatus = 'won';
+  } else if (guesses.length >= NUM_OF_GUESSES_ALLOWED) {
+    gameStatus = 'lost';
+  } else {
+    gameStatus = 'running';
+  }
 
   function addGuess(value: string) {
     setGuesses([...guesses, value]);
@@ -25,9 +34,9 @@ function Game() {
   return (
     <div className={styles.gameWrapper}>
       <GuessResults answer={answer} guesses={guesses} />
-      <GuessInput addGuess={addGuess} isDisabled={hasWon || !hasGuesses} />
+      <GuessInput addGuess={addGuess} isDisabled={gameStatus !== 'running'} />
 
-      {hasWon && (
+      {gameStatus === 'won' && (
         <Banner type='happy'>
           <p>
             <strong>Congratulations!</strong> Got it in{' '}
@@ -36,7 +45,7 @@ function Game() {
         </Banner>
       )}
 
-      {!hasWon && !hasGuesses && (
+      {gameStatus === 'lost' && (
         <Banner type='sad'>
           <p>
             Sorry, the correct answer is <strong>{answer}</strong>.
