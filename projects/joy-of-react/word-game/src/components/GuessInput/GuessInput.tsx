@@ -22,7 +22,11 @@ function GuessInput({ addGuess, isDisabled = false }: GuessInputProps) {
 
   return (
     <form className={styles.guessInputWrapper} onSubmit={handleSubmit}>
-      <label htmlFor='guess-input'>Enter guess:</label>
+      <label htmlFor='guess-input'>
+        <span className={styles.labelSide} />
+        Enter guess
+        <span className={styles.labelSide} />
+      </label>
       <input
         id='guess-input'
         type='text'

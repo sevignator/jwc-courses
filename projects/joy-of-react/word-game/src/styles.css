@@ -3,6 +3,16 @@
 */
 @font-face {
   font-family: Source;
+  src: url(/fonts/source/SourceSerif4-Regular);
+  font-weight: 400;
+}
+@font-face {
+  font-family: Source;
+  src: url(/fonts/source/SourceSerif4-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: Source;
   src: url(/fonts/source/SourceSerif4-Black.ttf);
   font-weight: 800;
 }

@@ -6,12 +6,25 @@
 }
 
 .guessInputWrapper label {
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  text-transform: uppercase;
   text-align: center;
+  letter-spacing: 0.1em;
   transition: color var(--time-transition-theme-switch);
 
   [data-theme="dark"] & {
     color: #FFF;
+  }
+
+  & .labelSide {
+    flex: 1;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-gray-500);
   }
 }
 

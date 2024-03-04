@@ -26,7 +26,9 @@
 .title {
   font-family: Source, 'Times New Roman', Times, serif;
   font-size: 2rem;
+  font-weight: 800;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
   transition: color var(--time-transition-theme-switch);
 
   [data-theme="dark"] & {
