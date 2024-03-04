@@ -3,9 +3,10 @@ import styles from './GuessInput.module.css';
 
 export type GuessInputProps = {
   addGuess: (newGuess: string) => void;
+  isDisabled: boolean;
 };
 
-function GuessInput({ addGuess }: GuessInputProps) {
+function GuessInput({ addGuess, isDisabled = false }: GuessInputProps) {
   const [guess, setGuess] = React.useState('');
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -31,6 +32,7 @@ function GuessInput({ addGuess }: GuessInputProps) {
         value={guess}
         onChange={handleChange}
         required
+        disabled={isDisabled}
       />
     </form>
   );

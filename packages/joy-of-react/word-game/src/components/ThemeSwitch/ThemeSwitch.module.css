@@ -69,7 +69,7 @@
       top: 0;
       left: -100%;
       scale: 0.8;
-      transition: left 200ms ease-out;
+      transition: left 200ms 75ms;
 
       .wrapper:has(:checked) & {
         left: 0;
@@ -81,7 +81,7 @@
       top: 0;
       right: 0;
       scale: 0.8;
-      transition: right 200ms ease-out;
+      transition: right 200ms 75ms;
 
       .wrapper:has(:checked) & {
         right: -100%;

@@ -11,12 +11,10 @@ function usePreferredColorScheme() {
   React.useEffect(() => {
     // Reference to the media query
     const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-    console.log('Listening to media query', mediaQuery);
 
     // Event handler for when the user switches their color scheme
     function updateColorScheme() {
       setColorScheme(mediaQuery.matches ? 'light' : 'dark');
-      console.log('Color theme change');
     }
 
     mediaQuery.addEventListener('change', updateColorScheme);

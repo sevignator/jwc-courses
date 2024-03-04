@@ -1,6 +1,12 @@
 /*
   Theme and global variables
 */
+@font-face {
+  font-family: Source;
+  src: url(../public/fonts/source/SourceSerif4-Black.ttf);
+  font-weight: 800;
+}
+
 :root {
   overflow-y: scroll;
 
@@ -9,13 +15,14 @@
   --color-success: hsl(150deg 70% 30%);
   --color-warning: hsl(50deg 100% 30%);
   --color-error: hsl(0deg 70% 45%);
-  --color-gray-100: hsl(0deg 0% 10%);
-  --color-gray-200: hsl(0deg 0% 15%);
-  --color-gray-300: hsl(0deg 0% 20%);
-  --color-gray-400: hsl(0deg 0% 25%);
-  --color-gray-500: hsl(0deg 0% 50%);
-  --color-gray-700: hsl(0deg 0% 75%);
-  --color-gray-900: hsl(0deg 0% 90%);
+  --color-gray-100: hsl(230deg 30% 15%);
+  --color-gray-200: hsl(230deg 25% 20%);
+  --color-gray-300: hsl(230deg 20% 25%);
+  --color-gray-400: hsl(230deg 15% 20%);
+  --color-gray-500: hsl(230deg 10% 50%);
+  --color-gray-700: hsl(230deg 5% 80%);
+  --color-gray-800: hsl(230deg 5% 90%);
+  --color-gray-900: hsl(230deg 0% 100%);
 
   --time-transition-theme-switch: 200ms;
 }
@@ -41,30 +48,6 @@ button {
   cursor: pointer;
   text-align: left;
   color: inherit;
-}
-
-.banner {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 32px;
-  text-align: center;
-  animation: slideUp 750ms cubic-bezier(0, 0.72, 0.24, 1.02);
-  border-radius: 4px 4px 0px 0px;
-  will-change: transform;
-}
-
-.happy.banner {
-  background: var(--color-success);
-  color: white;
-}
-.sad.banner {
-  background: var(--color-error);
-  color: white;
 }
 
 /*

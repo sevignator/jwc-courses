@@ -1,8 +1,7 @@
 .header {
   display: flex;
   padding: 10px;
-  border-bottom: 1px solid var(--color-gray-700);
-  background-color: var(--color-gray-900);
+  background-color: var(--color-gray-700);
   color: var(--color-gray-300);
   transition:
     background-color var(--time-transition-theme-switch),
@@ -10,7 +9,6 @@
 
   [data-theme="dark"] & {
     background-color: var(--color-gray-100);
-    border-color: rgb(0 0 0 / 0.65);
   }
 }
 
@@ -26,7 +24,9 @@
 }
 
 .title {
+  font-family: Source, 'Times New Roman', Times, serif;
   font-size: 2rem;
+  letter-spacing: 0.05em;
   transition: color var(--time-transition-theme-switch);
 
   [data-theme="dark"] & {
