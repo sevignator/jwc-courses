@@ -3,7 +3,7 @@
 */
 @font-face {
   font-family: Source;
-  src: url(../public/fonts/source/SourceSerif4-Black.ttf);
+  src: url(/public/fonts/source/SourceSerif4-Black.ttf);
   font-weight: 800;
 }
 
