@@ -1,0 +1,15 @@
+.label {
+  flex-basis: 160px;
+  text-align: right;
+  font-weight: 700;
+}
+
+.radioWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.inputWrapper {
+  flex: 1;
+}
