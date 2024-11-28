@@ -1,5 +1,7 @@
 import React from 'react';
 
+import toastImage from '../../assets/toast.png';
+
 import Button from '../Button';
 import MessageInput from '../MessageInput';
 import Toast from '../Toast';
@@ -33,7 +35,7 @@ function ToastPlayground() {
   return (
     <div className={styles.wrapper}>
       <header>
-        <img alt='Cute toast mascot' src='/toast.png' />
+        <img alt='Cute toast mascot' src={toastImage} />
         <h1>Toast Playground</h1>
       </header>
 

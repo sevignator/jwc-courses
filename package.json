@@ -1,12 +1,12 @@
 {
-  "name": "@josh-comeau",
+  "name": "@jwc-courses",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "find ./ -name node_modules -type d -exec rm -rf {} +"
   },
-  "keywords": [],
+  "keywords": [ ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
