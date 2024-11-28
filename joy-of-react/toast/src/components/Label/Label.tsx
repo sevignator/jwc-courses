@@ -2,10 +2,9 @@ import React from 'react';
 
 import styles from './Label.module.css';
 
-interface LabelProps {
+interface LabelProps extends React.ComponentProps<'label'> {
   children: React.ReactNode;
   className: string;
-  rest: React.ComponentProps<'label'>;
 }
 
 function Label({ children, className = '', ...rest }: LabelProps) {
