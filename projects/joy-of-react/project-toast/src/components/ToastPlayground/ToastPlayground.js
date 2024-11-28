@@ -7,18 +7,14 @@ import ToastShelf from '../ToastShelf';
 import VariantOptions from '../VariantOptions';
 
 import styles from './ToastPlayground.module.css';
+import { ToastContext } from '../ToastProvider';
 
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
-  const formRef = React.useRef();
+  const { addToast } = React.useContext(ToastContext);
   const [message, setMessage] = React.useState('');
   const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0]);
-  const [toasts, setToasts] = React.useState([]);
-
-  React.useEffect(() => {
-    formRef.current?.querySelector(':is(input, textarea, select)').focus();
-  }, [toasts]);
 
   function handleMessage(event) {
     setMessage(event.target.value);
@@ -29,23 +25,9 @@ function ToastPlayground() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const nextToasts = [
-      ...toasts,
-      {
-        id: crypto.randomUUID(),
-        message,
-        variant,
-      },
-    ];
-
-    setToasts(nextToasts);
+    addToast(message, variant);
     setMessage('');
     setVariant(VARIANT_OPTIONS[0]);
-  }
-  function handleDismiss(id) {
-    const nextToasts = toasts.filter((toast) => toast.id !== id);
-
-    setToasts(nextToasts);
   }
 
   return (
@@ -55,13 +37,9 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      <ToastShelf toasts={toasts} handleDismiss={handleDismiss} />
+      <ToastShelf />
 
-      <form
-        ref={formRef}
-        className={styles.controlsWrapper}
-        onSubmit={handleSubmit}
-      >
+      <form className={styles.controlsWrapper} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <MessageInput message={message} handleMessage={handleMessage} />
         </div>
