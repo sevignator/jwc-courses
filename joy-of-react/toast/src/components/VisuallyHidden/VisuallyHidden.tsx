@@ -2,11 +2,16 @@ import React from 'react';
 
 import styles from './VisuallyHidden.module.css';
 
+interface VisuallyHiddenProps extends React.ComponentProps<'span'> {
+  children: React.ReactNode;
+  className?: string;
+}
+
 const VisuallyHidden = ({
   children,
   className = '',
   ...delegated
-}) => {
+}: VisuallyHiddenProps) => {
   const [forceShow, setForceShow] = React.useState(false);
 
   React.useEffect(() => {

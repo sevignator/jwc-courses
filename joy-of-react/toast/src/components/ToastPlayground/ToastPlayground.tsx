@@ -1,30 +1,33 @@
 import React from 'react';
-
-import toastImage from '../../assets/toast.png';
-
 import Button from '../Button';
 import MessageInput from '../MessageInput';
-import Toast from '../Toast';
+import { ToastContext } from '../ToastProvider';
 import ToastShelf from '../ToastShelf';
-import VariantOptions from '../VariantOptions';
+import VariantSelector from '../VariantSelector';
 
 import styles from './ToastPlayground.module.css';
-import { ToastContext } from '../ToastProvider';
-
-const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
+import toastImage from '../../assets/toast.png';
+import { VARIANT_OPTIONS } from '../../constants';
+import { type VariantOptions } from '../../types';
 
 function ToastPlayground() {
-  const { addToast } = React.useContext(ToastContext);
-  const [message, setMessage] = React.useState('');
-  const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0]);
+  const toastContext = React.useContext(ToastContext);
 
-  function handleMessage(event) {
+  if (!toastContext) {
+    throw new Error('Context is missing')
+  }
+
+  const { addToast } = toastContext;
+  const [message, setMessage] = React.useState('');
+  const [variant, setVariant] = React.useState<VariantOptions>();
+
+  function handleMessage(event: React.ChangeEvent<HTMLTextAreaElement>) {
     setMessage(event.target.value);
   }
-  function handleVariant(event) {
+  function handleVariant(event: React.ChangeEvent<HTMLInputElement>) {
     setVariant(event.target.value);
   }
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     addToast(message, variant);
@@ -47,11 +50,7 @@ function ToastPlayground() {
         </div>
 
         <div className={styles.row}>
-          <VariantOptions
-            options={VARIANT_OPTIONS}
-            variant={variant}
-            handleVariant={handleVariant}
-          />
+          <VariantSelector variant={variant} handleVariant={handleVariant} />
         </div>
 
         <div className={styles.row}>

@@ -1,9 +1,14 @@
 import React from 'react';
-import Label from '../Label/Label';
+import Label from '../Label';
 
 import styles from './MessageInput.module.css';
 
-function MessageInput({ message, handleMessage }) {
+interface MessageInputProps {
+  message: string;
+  handleMessage: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+function MessageInput({ message, handleMessage }: MessageInputProps) {
   return (
     <>
       <Label htmlFor='message' style={{ alignSelf: 'baseline' }}>

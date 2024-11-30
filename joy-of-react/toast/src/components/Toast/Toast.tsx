@@ -6,9 +6,8 @@ import {
   Info,
   X,
 } from 'react-feather';
-
-import VisuallyHidden from '../VisuallyHidden';
 import { ToastContext } from '../ToastProvider';
+import VisuallyHidden from '../VisuallyHidden';
 
 import styles from './Toast.module.css';
 
@@ -18,9 +17,22 @@ const ICONS_BY_VARIANT = {
   success: CheckCircle,
   error: AlertOctagon,
 };
+export type Variants = (keyof typeof ICONS_BY_VARIANT);
 
-function Toast({ children, id, variant }) {
-  const { removeToast } = React.useContext(ToastContext);
+interface ToastProps {
+  children: React.ReactNode;
+  id: string;
+  variant: Variants;
+}
+
+function Toast({ children, id, variant }: ToastProps) {
+  const toastContext = React.useContext(ToastContext);
+
+  if (!toastContext) {
+    throw new Error('Missing ToastContext.')
+  }
+
+  const { removeToast } = toastContext;
   const Icon = ICONS_BY_VARIANT[variant];
 
   return (

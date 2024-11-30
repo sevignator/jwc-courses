@@ -1,12 +1,20 @@
 import React from 'react';
 
-import styles from './VariantOptions.module.css';
+import styles from './VariantSelector.module.css';
 
-function VariantOptions({ options, variant, handleVariant }) {
+import { VARIANT_OPTIONS } from '../../constants';
+import {type VariantOptions} from '../../types';
+
+interface VariantSelectorProps {
+  variant: VariantOptions;
+  handleVariant: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+function VariantSelector({ variant, handleVariant }: VariantSelectorProps) {
   return (
     <>
       <div className={styles.label}>Variant</div>
-      {options.map((option) => (
+      {VARIANT_OPTIONS.map((option) => (
         <div
           key={option}
           className={`${styles.inputWrapper} ${styles.radioWrapper}`}
@@ -28,4 +36,4 @@ function VariantOptions({ options, variant, handleVariant }) {
   );
 }
 
-export default VariantOptions;
+export default VariantSelector;

@@ -1,13 +1,30 @@
 import React from 'react';
-
 import useKeydown from '../../hooks/use-keydown';
 
-export const ToastContext = React.createContext(null);
+import { type VariantOptions } from '../../types';
 
-function ToastProvider({ children }) {
-  const [toasts, setToasts] = React.useState([]);
+interface ToastContextType {
+  toasts: Toast[];
+  addToast: (message: string, variant: VariantOptions) => void;
+  removeToast: (id: string) => void;
+}
+
+interface Toast {
+  id: string;
+  variant: VariantOptions;
+  message: string;
+}
+
+interface ToastProviderProps {
+  children: React.ReactNode;
+}
+
+export const ToastContext = React.createContext<ToastContextType | null>(null);
+
+function ToastProvider({ children }: ToastProviderProps) {
+  const [toasts, setToasts] = React.useState<Toast[]>([]);
   const addToast = React.useCallback(
-    (message, variant) => {
+    (message: string, variant: VariantOptions) => {
       const nextToasts = [
         ...toasts,
         {
@@ -16,15 +33,13 @@ function ToastProvider({ children }) {
           message,
         },
       ];
-
       setToasts(nextToasts);
     },
     [toasts]
   );
   const removeToast = React.useCallback(
-    (id) => {
+    (id: string) => {
       const nextToasts = toasts.filter((toast) => toast.id !== id);
-
       setToasts(nextToasts);
     },
     [toasts]

@@ -1,12 +1,17 @@
 import React from 'react';
-
 import Toast from '../Toast';
 import { ToastContext } from '../ToastProvider';
 
 import styles from './ToastShelf.module.css';
 
 function ToastShelf() {
-  const { toasts } = React.useContext(ToastContext);
+  const toastContext = React.useContext(ToastContext);
+
+  if (!toastContext) {
+    throw new Error('ToastContext could not be loaded.')
+  }
+
+  const { toasts } = toastContext;
 
   return (
     <ol

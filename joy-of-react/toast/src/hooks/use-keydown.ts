@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function useKeydown(key, callback) {
+export default function useKeydown(key: string, callback: () => void) {
   React.useEffect(() => {
-    function handleKeydown(event) {
+    function handleKeydown(event: KeyboardEvent) {
       if (event.code !== key) return;
 
       callback();

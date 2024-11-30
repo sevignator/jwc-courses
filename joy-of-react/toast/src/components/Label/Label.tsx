@@ -4,17 +4,17 @@ import styles from './Label.module.css';
 
 interface LabelProps extends React.ComponentProps<'label'> {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
-function Label({ children, className = '', ...rest }: LabelProps) {
+function Label({ children, className = '', ...delegated }: LabelProps) {
   const classes = [styles.label];
-  if (className?.length > 0) {
+  if (className) {
     classes.push(className);
   }
 
   return (
-    <label {...rest} className={classes.join(' ')}>
+    <label {...delegated} className={classes.join(' ')}>
       {children}
     </label>
   );
