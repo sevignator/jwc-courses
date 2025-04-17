@@ -21,6 +21,7 @@
     "new-component": "5.0.2",
     "next": "14.1",
     "next-mdx-remote": "4.4.1",
+    "project-blog": "link:",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "2.0.10"
