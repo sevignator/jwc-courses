@@ -34,7 +34,7 @@ function CircularColorsDemo() {
     return () => {
       clearTimeout(interval);
     };
-  }, [isRunning]);
+  }, [isRunning, timeElapsed]);
 
   const selectedColor = COLORS[timeElapsed % COLORS.length];
 
