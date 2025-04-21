@@ -15,10 +15,9 @@ function DivisionGroupsDemo({
   initialNumOfGroups = 1,
   includeRemainderArea,
 }) {
+  const id = React.useId();
   const [numOfGroups, setNumOfGroups] = React.useState(initialNumOfGroups);
-
   const numOfItemsPerGroup = Math.floor(numOfItems / numOfGroups);
-
   const remainder = includeRemainderArea ? numOfItems % numOfGroups : null;
 
   const SPRING_TRANSITION = {
@@ -59,11 +58,13 @@ function DivisionGroupsDemo({
             {range(numOfGroups).map((groupIndex) => (
               <div key={groupIndex} className={styles.group}>
                 {range(numOfItemsPerGroup).map((index) => {
-                  const id = `item-${groupIndex * numOfItemsPerGroup + index}`;
+                  const itemId = `${id}-${
+                    groupIndex * numOfItemsPerGroup + index
+                  }`;
                   return (
                     <motion.div
-                      key={id}
-                      layoutId={id}
+                      key={itemId}
+                      layoutId={itemId}
                       className={styles.item}
                       transition={SPRING_TRANSITION}
                     />
@@ -79,14 +80,14 @@ function DivisionGroupsDemo({
             <p className={styles.remainderHeading}>Remainder Area</p>
 
             {range(remainder).map((index) => {
-              const id = `item-${
+              const itemId = `${id}-${
                 numOfItems - (numOfItems % numOfGroups) + index
               }`;
 
               return (
                 <motion.div
-                  key={id}
-                  layoutId={id}
+                  key={itemId}
+                  layoutId={itemId}
                   className={styles.item}
                   transition={SPRING_TRANSITION}
                 />
